@@ -8,7 +8,7 @@ import java.nio.file.Paths;
 public class Main {
     public static void main(String[] args) {
         Path resourceDirectory = Paths.get("src","main","resources");
-        String driverPath = resourceDirectory.toFile().getAbsolutePath().concat("\\chromedriver.exe");
+        String driverPath = resourceDirectory.toFile().getAbsolutePath().concat("\\chromedriver");
 
         System.out.println(driverPath);
         System.setProperty("webdriver.chrome.driver", driverPath);
