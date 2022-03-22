@@ -1,0 +1,16 @@
+-------------------------------------------------------------------------------
+Test set: LabTest
+-------------------------------------------------------------------------------
+Tests run: 1, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 1.275 sec <<< FAILURE!
+startLabTest(LabTest)  Time elapsed: 0.093 sec  <<< FAILURE!
+java.lang.IllegalStateException: The driver executable must exist: /Users/mariamaksimova/IdeaProjects/tpo3/D:\chromedriver.exe
+	at org.openqa.selenium.internal.Require$FileStateChecker.isFile(Require.java:315)
+	at org.openqa.selenium.remote.service.DriverService.checkExecutable(DriverService.java:154)
+	at org.openqa.selenium.remote.service.DriverService.findExecutable(DriverService.java:149)
+	at org.openqa.selenium.chrome.ChromeDriverService.access$000(ChromeDriverService.java:37)
+	at org.openqa.selenium.chrome.ChromeDriverService$Builder.findDefaultExecutable(ChromeDriverService.java:222)
+	at org.openqa.selenium.remote.service.DriverService$Builder.build(DriverService.java:419)
+	at org.openqa.selenium.chrome.ChromeDriverService.createDefaultService(ChromeDriverService.java:119)
+	at org.openqa.selenium.chrome.ChromeDriver.<init>(ChromeDriver.java:41)
+	at LabTest.startLabTest(LabTest.java:17)
+
