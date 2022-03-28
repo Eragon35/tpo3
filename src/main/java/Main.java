@@ -7,13 +7,8 @@ import java.nio.file.Paths;
 
 public class Main {
     public static void main(String[] args) {
-        Path resourceDirectory = Paths.get("src","main","resources");
-        String driverPath = resourceDirectory.toFile().getAbsolutePath().concat("\\chromedriver");
-
-        System.out.println(driverPath);
-        System.setProperty("webdriver.chrome.driver", driverPath);
+        System.setProperty("webdriver.chrome.driver", "C:\\chromedriver.exe");
         WebDriver webDriver = new ChromeDriver();
-
         webDriver.get("https://swapzone.io");
     }
 }
