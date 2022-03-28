@@ -31,6 +31,7 @@ public class LabTest {
         projectPage.writeToTransaction("12312313");
         projectPage.writeToTitle("test Title");
         projectPage.writeToReview("test review");
+        projectPage.acceptCoockie();
         projectPage.clickSubmit();
         assertEquals("Check the reCAPTCHA", projectPage.getError());
     }
