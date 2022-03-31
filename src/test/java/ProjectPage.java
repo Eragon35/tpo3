@@ -39,6 +39,28 @@ public class ProjectPage {
     @FindBy(xpath = "//*[@id=\"__next\"]/div[2]/div/div[1]/div[2]/div[1]/div[4]/div[2]/div[2]")
     private WebElement firstComment;
 
+    @FindBy(xpath = "//*[@id=\"__next\"]/div[2]/div/div[3]/div[1]/a[1]/div/div[1]")
+    private WebElement chooseBitcoin;
+
+    @FindBy(xpath = "//*[@id=\"__next\"]/div[2]/div/div[1]/div[2]/div[1]/div[3]/p[1]")
+    private WebElement informationExchange;
+
+    @FindBy(xpath = "//*[@id=\"__next\"]/footer/div/div/div[2]/div/div[4]/nav/a[2]")
+    private WebElement telegram;
+
+    @FindBy(xpath = "//*[@id=\"__next\"]/div[2]/div/div/div[2]/div/div[1]/div/div[2]/input")
+    private WebElement yourRequest;
+
+    @FindBy(xpath = "//*[@id=\"__next\"]/div[2]/div/div/div[2]/div/div[1]/div/div[2]/div/img")
+    private WebElement searchButton;
+
+    @FindBy(xpath = "//*[@id=\"__next\"]/div[2]/div/div/div[2]/div/div/div[1]/div[2]/div/div/div[1]")
+    private WebElement resultSearch;
+
+
+
+
+
     ProjectPage(WebDriver driver) {
         PageFactory.initElements(driver, this);
     }
@@ -78,10 +100,33 @@ public class ProjectPage {
     public void clickScoreButton(){
         scoreButton.click();
     }
+    public void clickTelegramButton(){
+        telegram.click();
+    }
 
     public String getFirstComment(){
         return firstComment.getText();
     }
 
+
+    public void clickChooseBitcoin(){
+        chooseBitcoin.click();
+    }
+
+    public String getBitcoinInformation(){
+        return informationExchange.getText();
+    }
     public void acceptCoockie() { coockieButton.click(); }
+
+    public void writeToRequest(String request) {
+        yourRequest.sendKeys(request);
+    }
+
+    public void clickSearch(){
+        searchButton.click();
+    }
+    public String getResultSearch(){
+        return resultSearch.getText();
+    }
+
 }

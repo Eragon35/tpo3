@@ -7,6 +7,18 @@ public class MainPage {
     @FindBy(xpath = "//*[@id=\"__next\"]/div[1]/div/div/div[2]/nav/a[3]")
     private WebElement reviewButton;
 
+    @FindBy(xpath = "//*[@id=\"__next\"]/div[1]/div/div/div[2]/nav/a[2]")
+    private WebElement supportCurrenciesButton;
+
+    @FindBy(xpath = "//*[@id=\"__next\"]/div[1]/div/div/div[2]/nav/a[5]")
+    private WebElement fagButton;
+
+    @FindBy(xpath = "//*[@id=\"__next\"]/div[1]/div/div/div[2]/nav/a[7]")
+    private WebElement blogButton;
+
+    @FindBy(xpath = "//*[@id=\"__next\"]/div[1]/div/div/div[2]/nav/a[4]")
+    private WebElement referralProgram;
+
     @FindBy(xpath = "//*[contains(@class, 'button styles_second__2bse8')]")
     private WebElement exchangeButton;
 
@@ -51,6 +63,21 @@ public class MainPage {
 
     public void clickToReview() {
         reviewButton.click();
+    }
+    public void clickToFag() {
+        fagButton.click();
+    }
+
+    public void clickToSupportedCurrencies() {
+        supportCurrenciesButton.click();
+    }
+
+    public void clickToReferralProgram() {
+        referralProgram.click();
+    }
+
+    public void clickToBlog() {
+        blogButton.click();
     }
 
     public void clickToExchange() { exchangeButton.click(); }
