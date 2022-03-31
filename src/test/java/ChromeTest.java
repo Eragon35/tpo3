@@ -159,8 +159,6 @@ public class ChromeTest {
         mainPage.clickToBlog();
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         blogPage.clickChooseBlog();
-//        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-//        blogPage.writeToEmail("test@mail.ru");
         assertTrue(driver.getCurrentUrl().contains("https://swapzone.io/blog/"));
     }
 
@@ -174,7 +172,8 @@ public class ChromeTest {
         driver.get(ConfigReader.getProperty("url"));
         mainPage.clickToBlog();
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-        blogPage.clickFilterDate();
+        blogPage.writeToSearch("AMA");
+        blogPage.clickSubmit();
         assertTrue(driver.getCurrentUrl().contains("https://swapzone.io/blog/"));
     }
 

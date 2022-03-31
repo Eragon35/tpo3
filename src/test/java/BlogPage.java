@@ -4,17 +4,15 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 public class BlogPage {
-    @FindBy(xpath = "//*[@id=\"search_crypto_by_tag-2\"]/div/li[2]")
+    @FindBy(xpath = "//*[@id=\"block-3\"]/ul/li[2]/a")
     private WebElement chooseBlogName;
 
-    @FindBy(xpath = "//*[@id=\"email___ecd412e904309dcce66177488240b016_0_891778450\"]")
-    private WebElement yourEmail;
+    @FindBy(xpath = "//*[@id=\"wp-block-search__input-1\"]")
+    private WebElement searchBlog;
 
-    @FindBy(xpath = "//*[@id=\"ctct-submitted_0_1496985149\"]")
+    @FindBy(xpath = "//*[@id=\"block-5\"]/form/div/button")
     private WebElement submitButton;
 
-    @FindBy(xpath = "//*[@id=\"ctct-form-wrapper-0\"]/p")
-    private WebElement submitInfo;
 
     @FindBy(xpath = "//*[@id=\"crypto_short_by_date\"]")
     private WebElement filterDateBlog;
@@ -29,19 +27,11 @@ public class BlogPage {
         chooseBlogName.click();
     }
 
-    public void clickFilterDate(){
-        filterDateBlog.click();
-    }
-
     public void clickSubmit(){
         submitButton.click();
     }
-
-    public void writeToEmail(String email) {
-        yourEmail.sendKeys(email);
+    public void writeToSearch(String name) {
+        searchBlog.sendKeys(name);
     }
 
-    public String getInfo(){
-        return submitInfo.getText();
-    }
 }
