@@ -19,6 +19,7 @@ public class MainPage {
     @FindBy(xpath = "//*[@id=\"__next\"]/div[1]/div/div/div[2]/nav/a[4]")
     private WebElement referralProgram;
 
+
     @FindBy(xpath = "//*[contains(@class, 'button styles_second__2bse8')]")
     private WebElement exchangeButton;
 
@@ -28,7 +29,7 @@ public class MainPage {
     @FindBy(xpath = "(//*[contains(@class, 'styles_textarea__13zWC styles_exchangeFormInput__11KtF')])[3]")
     private WebElement secondAdressField;
 
-    @FindBy(xpath = "//*[contains(@class, 'button styles_proceedBtn__3yGvx styles_second__2bse8')]")
+    @FindBy(xpath = "//*[@id=\"__next\"]/div[2]/div/div[2]/div/div[3]/div/div[8]/span/button")
     private  WebElement submitExchangeButton;
 
     @FindBy(xpath = "//*[@id=\"cookie-button\"]")

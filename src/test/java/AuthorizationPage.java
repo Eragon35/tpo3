@@ -5,42 +5,48 @@ import org.openqa.selenium.support.PageFactory;
 
 public class AuthorizationPage {
 
-    @FindBy(xpath = "//*[@id=\"__next\"]/div[2]/div/div[2]/div/div/div[2]/div/div/div[1]/input[2]")
+    @FindBy(xpath = "//*[@id=\"__next\"]/div[2]/div/div[2]/div/div/div[1]/div/div/div/a[1]")
+    private WebElement createAccount;
+
+    @FindBy(xpath = "//*[@id=\"__next\"]/div[2]/div/div/div/div[2]/div/div[1]/input[2]")
     private WebElement yourNameField;
 
-    @FindBy(xpath = "//*[@id=\"__next\"]/div[2]/div/div[6]/div/div/div[2]/div/div/div[1]/input[1]")
+    @FindBy(xpath = "//*[@id=\"blockContact\"]/div/div[1]/input[2]")
     private WebElement yourNameForReferralField;
 
-    @FindBy(xpath = "//*[@id=\"__next\"]/div[2]/div/div[2]/div/div/div[2]/div/div/div/input[1]")
+    @FindBy(xpath = "//*[@id=\"blockContact\"]/div/div[1]/textarea")
+    private WebElement yourProductReferralField;
+
+    @FindBy(xpath = "//*[@id=\"__next\"]/div[2]/div/div/div/div[2]/div/div[1]/input[1]")
     private WebElement yourEmailField;
 
-    @FindBy(xpath = "//*[@id=\"__next\"]/div[2]/div/div[6]/div/div/div[2]/div/div/div[1]/input[2]")
+    @FindBy(xpath = "//*[@id=\"blockContact\"]/div/div[1]/input[1]")
     private WebElement yourEmailForReferralField;
 
-    @FindBy(xpath = "//*[@id=\"__next\"]/div[2]/div/div[2]/div/div/div[2]/div/div/div[1]/input[3]")
+    @FindBy(xpath = "//*[@id=\"__next\"]/div[2]/div/div/div/div[2]/div/div[1]/input[3]")
     private WebElement yourPasswordField;
 
-    @FindBy(xpath = "//*[@id=\"__next\"]/div[2]/div/div[2]/div/div/div[2]/div/div/div[1]/input[4]")
+    @FindBy(xpath = "//*[@id=\"__next\"]/div[2]/div/div/div/div[2]/div/div[1]/input[4]")
     private WebElement checkPasswordField;
 
-    @FindBy(xpath = "//*[@id=\"__next\"]/div[2]/div/div[2]/div/div/div[2]/div/div/div[2]/div[1]/label/span[1]")
+    @FindBy(xpath = "//*[@id=\"__next\"]/div[2]/div/div/div/div[2]/div/div[2]/div[1]/label/span[1]")
     private WebElement coockieButton;
 
-    @FindBy(xpath = "//*[@id=\"__next\"]/div[2]/div/div[2]/div/div/div[2]/div/div/div/div[3]/a[1]")
+    @FindBy(xpath = "//*[@id=\"__next\"]/div[2]/div/div/div/div[2]/div/div/div[3]/a[1]")
     private WebElement signUpButton;
 
-    @FindBy(xpath = "//*[@id=\"__next\"]/div[2]/div/div[2]/div/div/div[2]/div/div/button")
+    @FindBy(xpath = "//*[@id=\"__next\"]/div[2]/div/div/div/div[2]/div/button")
     private WebElement submitButton;
 
 
-    @FindBy(xpath = "//*[@id=\"__next\"]/div[2]/div/div[2]/div/div/div[2]/div/div/div[3]")
+    @FindBy(xpath = "//*[@id=\"__next\"]/div[2]/div/div/div/div[2]/div/div[3]")
     private WebElement errorCaptcha;
 
     @FindBy(xpath = "//*[@id=\"__next\"]/div[2]/div/div[6]/div/div/div[2]/div/div/div[2]")
     private WebElement info;
 
 
-    @FindBy(xpath = "//*[@id=\"__next\"]/div[2]/div/div[6]/div/div/div[2]/div/div/div[1]/button")
+    @FindBy(xpath = "//*[@id=\"blockContact\"]/div/div[1]/a")
     private WebElement getLinkButton;
 
     AuthorizationPage(WebDriver driver) {
@@ -88,8 +94,17 @@ public class AuthorizationPage {
         yourEmailForReferralField.sendKeys(email);
     }
 
+    public void writeToProductForReferral(String product) {
+        yourProductReferralField.sendKeys(product);
+    }
+
+
     public void clickGetLink() {
         getLinkButton.click();
+    }
+
+    public void clickCreateAccount() {
+        createAccount.click();
     }
 
 }

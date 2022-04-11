@@ -36,7 +36,7 @@ public class ProjectPage {
     @FindBy(xpath = "//*[@id=\"__next\"]/div[2]/div/div[1]/div[2]/div[1]/div[4]/div[1]/div[3]/div/div[2]")
     private WebElement errorCaptcha;
 
-    @FindBy(xpath = "//*[@id=\"__next\"]/div[2]/div/div[1]/div[2]/div[1]/div[4]/div[2]/div[2]")
+    @FindBy(xpath = "//*[@id=\"__next\"]/div[2]/div/div[1]/div[2]/div[1]/div[4]/div[2]")
     private WebElement firstComment;
 
     @FindBy(xpath = "//*[@id=\"__next\"]/div[2]/div/div[3]/div[1]/a[1]/div/div[1]")

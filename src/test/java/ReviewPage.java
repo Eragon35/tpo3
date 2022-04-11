@@ -5,7 +5,7 @@ import org.openqa.selenium.support.PageFactory;
 
 public class ReviewPage {
 
-    @FindBy(xpath = "//*[@id=\"__next\"]/div[2]/div/div[1]/div[2]/div[2]/div[2]/div[1]/input[2]")
+    @FindBy(xpath = "//*[@id=\"__next\"]/div[2]/div/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]")
     private WebElement cardCompany;
 
     @FindBy(xpath = "//*[@id=\"__next\"]/div[2]/div/div[1]/div[2]/div[2]/div[2]/div[1]/input[2]")
@@ -20,6 +20,11 @@ public class ReviewPage {
     @FindBy(xpath = "//*[@id=\"__next\"]/div[2]/div/div[1]/div[2]/div[2]/div[2]/div[2]")
     private WebElement info;
 
+
+    @FindBy(xpath = "//*[@id=\"__next\"]/div[2]/div/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]")
+    private WebElement card;
+
+
     ReviewPage(WebDriver driver) {
         PageFactory.initElements(driver, this);
     }
@@ -32,6 +37,9 @@ public class ReviewPage {
         submitButton.click();
     }
 
+    public void clickReviewCard(){
+        card.click();
+    }
     public void writeToCompany(String company) {
         yourCompanyField.sendKeys(company);
     }
