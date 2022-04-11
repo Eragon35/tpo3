@@ -41,6 +41,7 @@ public class MainPage {
     private WebElement ethLine;
 
     @FindBy(xpath = "//*[@id=\"__next\"]/div[2]/div/div[2]/div/div[1]/div[2]/div[2]/div[2]/div[2]/div[2]/div[1]/div[3]/div[3]")
+//    @FindBy(xpath = "//*[@id=\"__next\"]/div[2]/div/div[2]/div/div[1]/div[2]/div[2]/div[2]/div[2]/div[2]/div[1]/div[3]/div[3]")
     private WebElement usdtLine;
 
     @FindBy(xpath = "//*[@id=\"__next\"]/div[2]/div/div[2]/div/div[1]/div[2]/div[2]/div/div[2]")
@@ -54,6 +55,29 @@ public class MainPage {
 
     @FindBy(xpath = "//*[@id=\"__next\"]/div[2]/div/div[2]/div/div[3]/div/div[5]/div[1]/div[1]/textarea")
     private WebElement ethAdress;
+
+    @FindBy(xpath = "//*[@id=\"__next\"]/div[2]/div/div[2]/div/div[1]/div[1]/div[2]/div/div[1]/label/input")
+    private WebElement firstInput;
+
+    @FindBy(xpath = "//*[@id=\"__next\"]/div[2]/div/div[2]/div/div[1]/div[2]/div[2]/div/div[1]")
+    private WebElement secondInput;
+
+    @FindBy(xpath = "//*[@id=\"__next\"]/div[2]/div/div[2]/div/div[1]/div[3]/div[2]/div[1]/div[1]")
+    private WebElement dropDownFilter;
+
+    @FindBy(xpath = "//*[@id=\"__next\"]/div[2]/div/div[2]/div/div[1]/div[3]/div[2]/div[2]/div[2]/div[1]/div/ul/li[2]/div")
+    private WebElement fixedRateCheckbox;
+
+    @FindBy(xpath = "//*[@id=\"__next\"]/div[2]/div/div[2]/div/div[1]/div[3]/div[2]/div[2]/div[2]/div[1]/div/ul/li[3]/div")
+    private WebElement floatedRateWithTaxesCheckbox;
+
+    @FindBy(xpath = "//*[@id=\"__next\"]/div[2]/div/div[2]/div/div[1]/img")
+    private WebElement arrow;
+
+    @FindBy(xpath = "//*[@id=\"__next\"]/div[2]/div/div[2]/div/div[3]/div/div[3]/div[2]")
+    private WebElement error;
+
+
 
 
 
@@ -106,4 +130,36 @@ public class MainPage {
         fastestMarket.click();
         fastestExchangeButton.click();
     }
+
+
+    public void cleatFirstValue() {
+        firstInput.clear();
+    }
+    public void writeFirstValue(String value) {
+        firstInput.sendKeys(value);
+    }
+
+    public void cliclToDropdownFilter() {
+        dropDownFilter.click();
+    }
+
+    public void selectFloatingRate(){
+        fixedRateCheckbox.click();
+        floatedRateWithTaxesCheckbox.click();
+    }
+
+    public String readFirstInput() {
+        return firstInput.getText();
+    }
+
+    public String readSecondInput() {
+        return secondInput.getText();
+    }
+
+    public String getError() {
+        return error.getText();
+    }
+
+    public void clickToArrow() { arrow.click();}
+
 }

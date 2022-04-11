@@ -3,8 +3,7 @@ import org.testng.annotations.Test;
 
 import java.util.concurrent.TimeUnit;
 
-import static org.testng.AssertJUnit.assertEquals;
-import static org.testng.AssertJUnit.assertTrue;
+import static org.testng.AssertJUnit.*;
 
 public class ChromeTest {
     ChromeDriver driver;
@@ -225,7 +224,15 @@ public class ChromeTest {
         mainPage.acceptCoockie();
         driver.manage().timeouts().implicitlyWait(100, TimeUnit.SECONDS);
         mainPage.selectFirstETH();
-//        driver.manage().timeouts().implicitlyWait(1000, TimeUnit.SECONDS);
+        driver.manage().timeouts().implicitlyWait(2000, TimeUnit.SECONDS);
+        mainPage.cleatFirstValue();
+        driver.manage().timeouts().implicitlyWait(100, TimeUnit.SECONDS);
+        mainPage.writeFirstValue("10");
+        mainPage.cliclToDropdownFilter();
+        driver.manage().timeouts().implicitlyWait(1000, TimeUnit.SECONDS);
+        mainPage.selectFloatingRate();
+        driver.manage().timeouts().implicitlyWait(2000, TimeUnit.SECONDS);
+        Thread.sleep(1000);
         mainPage.selectSecondUsdt();
         Thread.sleep(1000);
         driver.manage().timeouts().implicitlyWait(10000, TimeUnit.SECONDS);
@@ -238,5 +245,78 @@ public class ChromeTest {
         Thread.sleep(5000);
         System.out.println(driver.getCurrentUrl());
         assertTrue(driver.getCurrentUrl().contains("https://swapzone.io/transaction/"));
+    }
+
+    @Test
+    public void wrongWalletIdTest(){
+        System.setProperty("webdriver.chrome.driver", ConfigReader.getProperty("driver"));
+        driver = new ChromeDriver();
+        mainPage = new MainPage(driver);
+        driver.get(ConfigReader.getProperty("url"));
+        driver.manage().timeouts().implicitlyWait(100, TimeUnit.SECONDS);
+        mainPage.clickToExchange();
+        mainPage.setFirstAdressField("111");
+        mainPage.setSecondAdressField("222");
+        mainPage.clickSubmitExchangeButton();
+        String error = mainPage.getError();
+        assertEquals("Address is invalid", error);
+
+    }
+
+    @Test
+    public void maxInputValueTest(){
+        System.setProperty("webdriver.chrome.driver", ConfigReader.getProperty("driver"));
+        driver = new ChromeDriver();
+        mainPage = new MainPage(driver);
+        driver.get(ConfigReader.getProperty("url"));
+
+        mainPage.cleatFirstValue();
+        String input = "9999999999999";
+        mainPage.writeFirstValue(input);
+        String realValue = mainPage.readFirstInput();
+        assertNotSame(input, realValue);
+    }
+
+    @Test
+    public void strelochkaTest() throws InterruptedException {
+        System.setProperty("webdriver.chrome.driver", ConfigReader.getProperty("driver"));
+        driver = new ChromeDriver();
+        mainPage = new MainPage(driver);
+
+        driver.get(ConfigReader.getProperty("url"));
+        Thread.sleep(1000);
+        String valueBefore = "10";
+        mainPage.cleatFirstValue();
+        Thread.sleep(100);
+        mainPage.writeFirstValue(valueBefore);
+        Thread.sleep(1000);
+        mainPage.clickToArrow();
+        Thread.sleep(1000);
+        mainPage.clickToArrow();
+        Thread.sleep(1000);
+        String valueAfter = mainPage.readFirstInput();
+        assertNotSame(valueBefore, valueAfter);
+    }
+
+    @Test
+    public void roflanPomoikaTest() throws InterruptedException {
+        System.setProperty("webdriver.chrome.driver", ConfigReader.getProperty("driver"));
+        driver = new ChromeDriver();
+        mainPage = new MainPage(driver);
+        driver.get(ConfigReader.getProperty("url"));
+
+        Thread.sleep(1000);
+        mainPage.cleatFirstValue();
+        mainPage.cleatFirstValue();
+        Thread.sleep(100);
+        mainPage.writeFirstValue("998");
+        Thread.sleep(2000);
+        double firstValue = Double.parseDouble(mainPage.readSecondInput());
+        Thread.sleep(100);
+        mainPage.cleatFirstValue();
+        mainPage.writeFirstValue("999");
+        Thread.sleep(2000);
+        double secondValue = Double.parseDouble(mainPage.readSecondInput());
+        assertTrue(firstValue <= secondValue);
     }
 }
