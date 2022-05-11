@@ -55,6 +55,7 @@ public class ProjectPage {
     private WebElement searchButton;
 
     @FindBy(xpath = "//*[@id=\"__next\"]/div[2]/div/div/div[2]/div/div/div[1]/div[2]/div/div/div[1]")
+//    @FindBy(xpath = "/html/body/div[1]/div[2]/div/div/div[2]/div/div/div[1]/div[1]/input")
     private WebElement resultSearch;
 
 

@@ -20,17 +20,26 @@ public class MainPage {
     private WebElement referralProgram;
 
 
-    @FindBy(xpath = "//*[contains(@class, 'button styles_second__2bse8')]")
+//    @FindBy(xpath = "//*[contains(@class, 'button styles_second__2bse8')]")
+    @FindBy(xpath = "//*[@id=\"__next\"]/div[2]/div/div[2]/div/div[2]/div/div/div[2]/div/div/div[1]/div/div/div[2]/div[2]/span/button")
+//    @FindBy(xpath = "//*[@id=\"__next\"]/div[2]/div/div[2]/div/div[2]/div/div/div[2]/div/div/div[1]/div/div/div[2]/div[2]/span/button")
     private WebElement exchangeButton;
 
+
+    //todo: change to normal xpath
     @FindBy(xpath = "//*[contains(@class, 'styles_textarea__13zWC styles_exchangeFormInput__11KtF')]")
     private WebElement firstAdressField;
 
     @FindBy(xpath = "(//*[contains(@class, 'styles_textarea__13zWC styles_exchangeFormInput__11KtF')])[3]")
     private WebElement secondAdressField;
 
+    //    @FindBy(xpath = "//*[@id=\"__next\"]/div[2]/div/div[2]/div/div[3]/div/div[8]/span/button")
     @FindBy(xpath = "//*[@id=\"__next\"]/div[2]/div/div[2]/div/div[3]/div/div[8]/span/button")
     private  WebElement submitExchangeButton;
+
+        @FindBy(xpath = "//*[@id=\"__next\"]/div[2]/div/div[2]/div/div[3]/div/div[7]/span/button")
+//    @FindBy(xpath = "//*[@id="__next"]/div[2]/div/div[2]/div/div[3]/div/div[7]/span/button")
+    private  WebElement submitExchangeButton1;
 
     @FindBy(xpath = "//*[@id=\"cookie-button\"]")
     private WebElement coockieButton;
@@ -114,11 +123,16 @@ public class MainPage {
     public void setEthAdress(String adr) { ethAdress.sendKeys(adr);}
 
     public void clickSubmitExchangeButton() { submitExchangeButton.click(); }
+    public void clickSubmitExchangeButton1() { submitExchangeButton1.click(); }
 
     public void acceptCoockie() { coockieButton.click(); }
 
-    public void selectFirstETH() {
+
+    public void dropDownMenu(){
         dropDownFirstCoin.click();
+
+    }
+    public void selectFirstETH() {
         ethLine.click();
     }
 

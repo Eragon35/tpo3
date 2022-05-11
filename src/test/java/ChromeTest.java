@@ -30,9 +30,9 @@ public class ChromeTest {
         driver.get(ConfigReader.getProperty("url"));
 
         mainPage.clickToReview();
-        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+        driver.manage().timeouts().implicitlyWait(10, TimeUnit.MILLISECONDS);
         reviewPage.clickReviewCard();
-        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+        driver.manage().timeouts().implicitlyWait(10, TimeUnit.MILLISECONDS);
         projectPage.clickReviewButton();
         projectPage.writeToName("Test");
         projectPage.writeToEmail("test@test.ru");
@@ -45,7 +45,7 @@ public class ChromeTest {
     }
 
     @Test
-    public void registrationTest() {
+    public void registrationTest() throws InterruptedException {
         System.setProperty("webdriver.chrome.driver", ConfigReader.getProperty("driver"));
         driver = new ChromeDriver();
         mainPage = new MainPage(driver);
@@ -54,11 +54,11 @@ public class ChromeTest {
         driver.get(ConfigReader.getProperty("url"));
 
         mainPage.clickToReferralProgram();
-        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+        Thread.sleep(1500);
         authorizationPage.clickCreateAccount();
-        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+        driver.manage().timeouts().implicitlyWait(10, TimeUnit.MILLISECONDS);
         authorizationPage.clickSignUpButton();
-        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+        driver.manage().timeouts().implicitlyWait(10, TimeUnit.MILLISECONDS);
         authorizationPage.writeToEmail("test@test.ru");
         authorizationPage.writeToName("test");
         authorizationPage.writeToPassword("123456");
@@ -78,7 +78,7 @@ public class ChromeTest {
         driver.get(ConfigReader.getProperty("url"));
 
         mainPage.clickToReferralProgram();
-        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+        driver.manage().timeouts().implicitlyWait(10, TimeUnit.MILLISECONDS);
         authorizationPage.writeToNameForReferral("test");
         authorizationPage.writeToEmailForReferral("test@test.ru");
         authorizationPage.writeToProductForReferral("test");
@@ -96,7 +96,7 @@ public class ChromeTest {
         driver.get(ConfigReader.getProperty("url"));
 
         mainPage.clickToReferralProgram();
-        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+        driver.manage().timeouts().implicitlyWait(10, TimeUnit.MILLISECONDS);
         projectPage.clickTelegramButton();
     }
 
@@ -112,9 +112,9 @@ public class ChromeTest {
 
         driver.get(ConfigReader.getProperty("url"));
         mainPage.clickToReview();
-        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+        driver.manage().timeouts().implicitlyWait(10, TimeUnit.MILLISECONDS);
         reviewPage.clickCard();
-        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+        driver.manage().timeouts().implicitlyWait(10, TimeUnit.MILLISECONDS);
         System.out.println(projectPage.getFirstComment());
     }
 
@@ -128,9 +128,9 @@ public class ChromeTest {
 
         driver.get(ConfigReader.getProperty("url"));
         mainPage.clickToSupportedCurrencies();
-        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+        driver.manage().timeouts().implicitlyWait(10, TimeUnit.MILLISECONDS);
         projectPage.clickChooseBitcoin();
-        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+        driver.manage().timeouts().implicitlyWait(10, TimeUnit.MILLISECONDS);
         System.out.println(projectPage.getBitcoinInformation());
         assertTrue(driver.getCurrentUrl().contains("https://swapzone.io/currencies/bitcoin"));
     }
@@ -144,7 +144,7 @@ public class ChromeTest {
 
         driver.get(ConfigReader.getProperty("url"));
         mainPage.clickToFag();
-        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+        driver.manage().timeouts().implicitlyWait(10, TimeUnit.MILLISECONDS);
         projectPage.writeToRequest("What is Swapzone");
         projectPage.clickSearch();
         assertEquals("WHAT IS SWAPZONE?", projectPage.getResultSearch());
@@ -159,7 +159,7 @@ public class ChromeTest {
 
         driver.get(ConfigReader.getProperty("url"));
         mainPage.clickToBlog();
-        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+        driver.manage().timeouts().implicitlyWait(10, TimeUnit.MILLISECONDS);
         blogPage.clickChooseBlog();
         assertTrue(driver.getCurrentUrl().contains("https://swapzone.io/blog/"));
     }
@@ -173,7 +173,7 @@ public class ChromeTest {
 
         driver.get(ConfigReader.getProperty("url"));
         mainPage.clickToBlog();
-        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+        driver.manage().timeouts().implicitlyWait(10, TimeUnit.MILLISECONDS);
         blogPage.writeToSearch("AMA");
         blogPage.clickSubmit();
         assertTrue(driver.getCurrentUrl().contains("https://swapzone.io/blog/"));
@@ -189,7 +189,7 @@ public class ChromeTest {
         driver.get(ConfigReader.getProperty("url"));
 
         mainPage.clickToReview();
-        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+        driver.manage().timeouts().implicitlyWait(10, TimeUnit.MILLISECONDS);
         reviewPage.writeToCompany("Test");
         reviewPage.writeToEmail("test@test.ru");
         reviewPage.clickSubmitCompany();
@@ -205,14 +205,14 @@ public class ChromeTest {
         mainPage = new MainPage(driver);
 
         driver.get(ConfigReader.getProperty("url"));
-        driver.manage().timeouts().implicitlyWait(100, TimeUnit.SECONDS);
+        driver.manage().timeouts().implicitlyWait(100, TimeUnit.MILLISECONDS);
         mainPage.acceptCoockie();
         mainPage.clickToExchange();
         mainPage.setFirstAdressField(xmr);
         mainPage.setSecondAdressField(btc);
-        driver.manage().timeouts().implicitlyWait(100, TimeUnit.SECONDS);
+        driver.manage().timeouts().implicitlyWait(100, TimeUnit.MILLISECONDS);
         mainPage.clickSubmitExchangeButton();
-        driver.manage().timeouts().implicitlyWait(800, TimeUnit.SECONDS);
+        driver.manage().timeouts().implicitlyWait(800, TimeUnit.MILLISECONDS);
         //Thread.sleep(5000);
         System.out.println(driver.getCurrentUrl());
         //assertTrue(driver.getCurrentUrl().contains("https://swapzone.io/"));
@@ -226,43 +226,48 @@ public class ChromeTest {
 
         driver.get(ConfigReader.getProperty("url"));
         mainPage.acceptCoockie();
-        driver.manage().timeouts().implicitlyWait(100, TimeUnit.SECONDS);
+        driver.manage().timeouts().implicitlyWait(100, TimeUnit.MILLISECONDS);
+        Thread.sleep(1500);
+        mainPage.dropDownMenu();
         mainPage.selectFirstETH();
-        driver.manage().timeouts().implicitlyWait(2000, TimeUnit.SECONDS);
+        driver.manage().timeouts().implicitlyWait(2000, TimeUnit.MILLISECONDS);
         mainPage.cleatFirstValue();
-        driver.manage().timeouts().implicitlyWait(100, TimeUnit.SECONDS);
+        driver.manage().timeouts().implicitlyWait(100, TimeUnit.MILLISECONDS);
         mainPage.writeFirstValue("10");
         mainPage.cliclToDropdownFilter();
-        driver.manage().timeouts().implicitlyWait(1000, TimeUnit.SECONDS);
+        driver.manage().timeouts().implicitlyWait(1000, TimeUnit.MILLISECONDS);
+        Thread.sleep(500);
         mainPage.selectFloatingRate();
-        driver.manage().timeouts().implicitlyWait(2000, TimeUnit.SECONDS);
+        driver.manage().timeouts().implicitlyWait(2000, TimeUnit.MILLISECONDS);
         Thread.sleep(1000);
         mainPage.selectSecondUsdt();
         Thread.sleep(1000);
-        driver.manage().timeouts().implicitlyWait(10000, TimeUnit.SECONDS);
+        driver.manage().timeouts().implicitlyWait(10000, TimeUnit.MILLISECONDS);
         mainPage.selectFastestMarket();
-        driver.manage().timeouts().implicitlyWait(100, TimeUnit.SECONDS);
+        driver.manage().timeouts().implicitlyWait(100, TimeUnit.MILLISECONDS);
         mainPage.setFirstAdressField(usdt);
         mainPage.setEthAdress(eth);
-        driver.manage().timeouts().implicitlyWait(100, TimeUnit.SECONDS);
-        mainPage.clickSubmitExchangeButton();
+        Thread.sleep(1000);
+        mainPage.clickSubmitExchangeButton1();
         Thread.sleep(5000);
         System.out.println(driver.getCurrentUrl());
         assertTrue(driver.getCurrentUrl().contains("https://swapzone.io/transaction/"));
     }
 
     @Test
-    public void wrongWalletIdTest(){
+    public void wrongWalletIdTest() throws InterruptedException {
         System.setProperty("webdriver.chrome.driver", ConfigReader.getProperty("driver"));
         driver = new ChromeDriver();
         mainPage = new MainPage(driver);
         driver.get(ConfigReader.getProperty("url"));
-        driver.manage().timeouts().implicitlyWait(100, TimeUnit.SECONDS);
+        Thread.sleep(3000);
         mainPage.clickToExchange();
-        driver.manage().timeouts().implicitlyWait(100, TimeUnit.SECONDS);
+        driver.manage().timeouts().implicitlyWait(1000, TimeUnit.MILLISECONDS);
         mainPage.setFirstAdressField("111");
         mainPage.setSecondAdressField("222");
+        Thread.sleep(2000);
         mainPage.clickSubmitExchangeButton();
+        Thread.sleep(2000);
         assertEquals("Address is invalid", mainPage.getError());
 
     }
